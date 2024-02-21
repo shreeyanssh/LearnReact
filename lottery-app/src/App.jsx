@@ -1,11 +1,15 @@
-import { useState } from 'react'
 import './App.css'
 import Lottery from './Lottery'
+import {sum} from './helper.js'
 
 function App() {
+  let winCondi = (arr) =>{
+    return arr.every((num) => num === arr[0]);
+  }
+
   return (
     <>
-      <Lottery n={3} winningSum={15}/>
+      <Lottery n={3} winCondition={winCondi}/>
     </>
   )
 }

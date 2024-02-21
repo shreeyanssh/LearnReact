@@ -2,9 +2,9 @@ import { useState } from "react"
 import Ticket from "./Ticket";
 import {getTicket, sum} from "./helper";
 
-export default function Lottery({n=3, winningSum=15}){
+export default function Lottery({n=3, winCondition}){
     let [ticket, setTicket] = useState(getTicket(n));
-    let isWinning = sum(ticket) === winningSum;
+    let isWinning = winCondition;
 
     let buyTicket = () =>{
         setTicket(() => getTicket(n))
