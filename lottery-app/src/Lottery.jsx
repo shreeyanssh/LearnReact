@@ -4,7 +4,7 @@ import {getTicket, sum} from "./helper";
 
 export default function Lottery({n=3, winCondition}){
     let [ticket, setTicket] = useState(getTicket(n));
-    let isWinning = winCondition;
+    let isWinning = winCondition(ticket);
 
     let buyTicket = () =>{
         setTicket(() => getTicket(n))

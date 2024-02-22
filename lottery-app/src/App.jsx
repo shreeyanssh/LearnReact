@@ -1,6 +1,5 @@
 import './App.css'
 import Lottery from './Lottery'
-import {sum} from './helper.js'
 
 function App() {
   let winCondi = (arr) =>{
