@@ -1,14 +1,51 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <div className='m-10 flex justify-center gap-20 text-xl '>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/user">User</NavLink>
-        <NavLink to="/about">About</NavLink>
-    </div>
-  )
-}
+    <div className="m-10 flex justify-end gap-20 text-xl ">
 
-export default Nav
+      <NavLink
+        style={(event) => {
+          return {
+            color: event.isActive ? "tomato" : "",
+            fontWeight: event.isActive ? "bold" : "",
+          };
+        }}
+        to="/"
+      >
+        Home
+      </NavLink>
+
+      <NavLink
+        className={(event) => {
+          return [
+            event.isActive ? "text-red-400" : "",
+            event.isActive ? "font-bold" : "",
+          ].join(" ");
+        }}
+        to="/user"
+      >
+        User
+      </NavLink>
+
+      <NavLink to="/about">
+        {(event) => {
+          return (
+            <span
+              className={[
+                event.isActive ? "text-red-400" : "",
+                event.isActive ? "font-bold" : ""].join(" ")
+              }
+            >
+              About
+            </span>
+          );
+        }}
+      </NavLink>
+
+    </div>
+  );
+};
+
+export default Nav;
